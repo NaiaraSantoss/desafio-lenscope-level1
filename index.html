@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<LINK href="special.css" rel="stylesheet" type="text/css">-->
+    <style type="text/css">
+       #btn{
+        background-color: blue;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+
+       }
+       #ESF{
+        
+        padding: 10px 27px;
+        font-size: 12px;
+
+       }
+       #CIL{
+        padding: 10px 27px;
+        font-size: 12px;
+       }
+       p{
+        font-size: 14px;
+        font-weight: bold;
+       }
+
+
+    </style>
+   
+   
+    <title>Desafio teste técnico</title>
+</head>
+<body>
+    <h1></h1>
+
+
+    <form>
+        <h1>Escolha a lente:</h1>
+        <br>
+ 
+    <section>
+        <h2>Olho Direito</h2>
+        <p>Grau Esférico</p>
+        <input type="number" id="ESF" class="ESF" name="ESF" min="-15" max="0" step = "any" >
+        <br>
+        <p>Grau Cilíndrico</p>
+        <input type="number" id="CIL" class="CIL" name="CIL" min="-6" step = "any" >
+
+  
+    <br><br>
+
+
+    <h2>Olho Esquerdo</h2>
+        <p>Grau Esférico</p>
+        <input type="number" id="ESF" class="ESF" name="ESF" min="-15" max="0" step = "any" >
+        <br>
+        <p>Grau Cilíndrico</p>
+        <input type="number" id="CIL" class="CIL" name="CIL" min="-6" max="" step = "any" >
+
+
+    </section>
+    <br><br>
+    </form>
+
+
+    <p id="demo"></p>
+
+
+
+    <script type="text/javascript">
+    console.log("funciona")
+
+    
+
+         function clicou(){
+            var ESF = document.getElementById('ESF').value;
+            var CIL = document.getElementById('CIL').value;
+
+            
+
+                if(ESF <= -3 && ESF >= -12){
+                    document.getElementById("demo").innerHTML = ("Lente Prime")
+                    if(CIL == 0){
+                        document.getElementById("demo").innerHTML = ("Lente Prime")
+                    if(ESF <=-3 && ESF >= -10 && CIL >=-2){
+                        document.getElementById("demo").innerHTML = ("Lente Prime")
+                    }
+
+                    }else{
+                        document.getElementById("demo").innerHTML = ("Lente Vision")
+
+                    }
+                }
+                if(ESF <=0 && ESF >=-15 && CIL >=-5){
+                    document.getElementById("demo").innerHTML = ("Lente Vision")
+
+
+                }
+
+            
+               
+
+        }
+        
+    </script>
+
+ <input id="btn" type="submit" onclick="clicou()" value="Submit">
+
+    
+</body>
+</html>
+
+<!--
+    Em uma compra online, o usuário insere informações de sua receita oftálmica,
+     e nosso sistema deve exibir uma lente que atende a sua necessidade.
+    Precisamos captar 4 parâmetros numéricos do usuário. São eles:
+    grau esférico do olho esquerdo, grau esférico do olho direito, 
+    grau cilíndrico do olho esquerdo e grau cilíndrico do olho direito. 
+    
+    
+    A lente Prime só pode ser uma opção para o usuário que tiver grau esférico, 
+    seja do olho esquerdo ou do olho direito, entre -3 e -12. Além disso,
+    ela só atende até grau cilíndrico -2, porém, se o usuário apresentar grau cilíndrico, 
+    ela passa a atender grau esférico entre -3 e -10.
+
+    se grau esferico <=-3 e >=-12 >> prime
+    se grau esferico <=-3 e >=-12  e cilindrico <=-2 >>prime
+    se cilindrico diferente de 0 e grau esferico <=-3 e >=-10 >>
+    se grau esferico <= 0 e >= -15 e >=-5 >> vision
+
+
+
+
+
+    Já a lente Vision é uma opção para quem tem de 0 a -15 de esférico e até -5 de cilíndrico.
+
+     Quando a lente Prime está disponível, ela deve ser a única exibida para o usuário. 
+     OBS: O grau limite que o usuário pode inserir é de 0 a -15 para esférico e -6 para 
+     cilíndrico e são números iterados de 0,25 em 0,25 (ex: -0,25; 0; +0,25; etc)
+     OD – Olho Direito
+
+-->
